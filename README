@@ -9,3 +9,26 @@ To run the project follow these steps:
 7) Start sandbox executable
 8) Or start unit_tests executable
 
+Notes:
+Question: Find the median from arbitrary input.
+
+Structure:
+    Heap - class that implements a heap data structure
+    HeapMedian - the algorithm uses the two heap approach where there is left_heap(max_heap)
+    that stores the lower values and right_heap(min_heap) that stores the bigger values.
+
+    Motivation:
+        1) Using unsorted array + quick median algorithm complexity is O(n).
+        Drawback is having to recalculate the median every time we need it.
+
+        2) Sorting the array once and keeping the array sorted.
+        Complexity is O(n) because we have to shift everything to the right
+
+        3) Linked list's you cannot use binary search so searching is slow insertion could
+        probably take O(n) to first search for the right place to insert.
+
+        4) Heap data structure
+            Insertion O(logn)
+            FindMedian O(1)
+
+
