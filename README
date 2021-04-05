@@ -1,11 +1,14 @@
 To run the project follow these steps:
 
-1) Run git submodule init
-2) Run git submodule update
-3) Create build folder
-4) cd ./build
-5) Run cmake ..
+Installation steps:
+in project folder:
+1) git submodule init
+2) git submodule update
+3) mkdir build
+4) cd build
+5) cmake ..
 6) Run make
+
 7) Start sandbox executable
     Sandbox executable serves if you want to try out functionality.
     I have added some speed tests against std::sort
