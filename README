@@ -1,8 +1,10 @@
 To run the project follow these steps:
 
-1) Create build folder
-2) Run cmake ..
-3) Run make
-4) Start sandbox executable
-5) Or start unit_tests executable
+1) Run git submodule init
+2) Run git submodule update
+3) Create build folder
+4) Run cmake ..
+5) Run make
+6) Start sandbox executable
+7) Or start unit_tests executable
 
