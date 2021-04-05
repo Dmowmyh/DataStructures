@@ -7,7 +7,12 @@ To run the project follow these steps:
 5) Run cmake ..
 6) Run make
 7) Start sandbox executable
+    sandbox executable serves for trying out functionality.
+    nothing really happens here it's just for test purposes.
+
 8) Or start unit_tests executable
+    unit_tests executable runs some edge case tests and random input tests compared
+    against a known working library
 
 Notes:
 Question: Find the median from arbitrary input.
@@ -17,7 +22,7 @@ Structure:
     HeapMedian - the algorithm uses the two heap approach where there is left_heap(max_heap)
     that stores the lower values and right_heap(min_heap) that stores the bigger values.
 
-    Motivation:
+    Motivation for choosing this solution:
         1) Using unsorted array + quick median algorithm complexity is O(n).
         Drawback is having to recalculate the median every time we need it.
 
