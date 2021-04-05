@@ -7,12 +7,14 @@ To run the project follow these steps:
 5) Run cmake ..
 6) Run make
 7) Start sandbox executable
-    sandbox executable serves for trying out functionality.
-    nothing really happens here it's just for test purposes.
+    Sandbox executable serves if you want to try out functionality.
+    I have added some speed tests against std::sort
 
 8) Or start unit_tests executable
-    unit_tests executable runs some edge case tests and random input tests compared
-    against a known working library
+    Unit_tests executable runs:
+    1) Edge case tests
+    2) random input tests compared against a known working library
+    * Uses catch2 library for tests
 
 Notes:
 Question: Find the median from arbitrary input.
@@ -24,16 +26,18 @@ Structure:
 
     Motivation for choosing this solution:
         1) Using unsorted array + quick median algorithm complexity is O(n).
-        Drawback is having to recalculate the median every time we need it.
+            Drawback is having to recalculate the median every time we need it.
 
         2) Sorting the array once and keeping the array sorted.
-        Complexity is O(n) because we have to shift everything to the right
+            Complexity is O(n) because we have to shift everything to the right in the worst
+            case
 
-        3) Linked list's you cannot use binary search so searching is slow insertion could
-        probably take O(n) to first search for the right place to insert.
+        3) Linked list's
+            Drawback cannot use binary search so searching is slow insertion could
+            probably take O(n) to first search for the right place to insert.
 
         4) Heap data structure
-            Insertion O(logn)
-            FindMedian O(1)
+            Insertion O(logn) - Tree structure traversal
+            FindMedian O(1) - Median is always located on top of root
 
 
