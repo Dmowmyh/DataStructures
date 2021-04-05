@@ -33,32 +33,36 @@ TEST_CASE("TC02", "[HashMedianValidation]")
         REQUIRE(floats.GetMedian() == 1.5);
     }
 
-    // Test random inputs compared with stl algorithm
-    srand (time(NULL));
-
-    for (size_t numOfTests = 0; numOfTests < 10000; numOfTests++)
     {
-        size_t input_size = rand()%10000;
+        // Test random inputs compared with stl algorithm
+        srand (time(NULL));
 
-        HeapMedian<int> median(input_size);
-        std::vector<int> v;
+        for (size_t numOfTests = 0; numOfTests < 10000; numOfTests++)
+        {
+            size_t input_size = rand()%10000;
+            HeapMedian<int> median(input_size);
+            std::vector<int> v;
 
-        for (size_t j = 0; j < input_size; j++)
-        {
-            auto random_number = rand()%input_size;
-            median.Insert(random_number);
-            v.push_back(random_number);
-        }
-        //Sort using std algorithm
-        std::sort(v.begin(), v.end());
+            for (size_t j = 0; j < input_size; j++)
+            {
+                auto random_number = rand()%input_size;
+                median.Insert(random_number);
+                v.push_back(random_number);
+            }
+            //Sort using std algorithm
+            std::sort(v.begin(), v.end());
 
-        if (v.size()%2 == 0)
-        {
-            REQUIRE((v[v.size()/2]+v[v.size()/2-1])/2 == median.GetMedian());
-        }
-        else
-        {
-            REQUIRE(v[v.size()/2] == median.GetMedian());
+            if (!v.empty())
+            {
+                if (v.size()%2 == 0)
+                {
+                    REQUIRE((v[v.size()/2]+v[v.size()/2-1])/2 == median.GetMedian());
+                }
+                else
+                {
+                    REQUIRE(v[v.size()/2] == median.GetMedian());
+                }
+            }
         }
     }
 }
