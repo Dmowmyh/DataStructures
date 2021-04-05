@@ -1,0 +1,6 @@
+To run the project follow these steps:
+
+1) Create build folder
+2) Run cmake ..
+3) Run make
+4) Start sandbox executable
