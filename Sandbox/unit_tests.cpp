@@ -52,13 +52,16 @@ TEST_CASE("TC02", "[HashMedianValidation]")
         //Sort using std algorithm
         std::sort(v.begin(), v.end());
 
-        if (v.size()%2 == 0)
+        if (!v.empty())
         {
-            REQUIRE((v[v.size()/2]+v[v.size()/2-1])/2 == median.GetMedian());
-        }
-        else
-        {
-            REQUIRE(v[v.size()/2] == median.GetMedian());
+            if (v.size()%2 == 0)
+            {
+                REQUIRE((v[v.size()/2]+v[v.size()/2-1])/2 == median.GetMedian());
+            }
+            else
+            {
+                REQUIRE(v[v.size()/2] == median.GetMedian());
+            }
         }
     }
 }
