@@ -2,15 +2,21 @@
 #include <memory>
 #include <iostream>
 #include <vector>
+#include <functional>
 
 template <typename T>
 class Heap
 {
 public:
-    Heap(size_t capacity);
+    //TODO Fix remove traverse direction flag
+    using Predicate = std::function<bool(const T& lhs, const T& rhs, bool traverseDirection)>;
+    static Predicate MinPredicate;
+    static Predicate MaxPredicate;
 
-    virtual void FixHeap(size_t nodeIdx) = 0;
-    virtual void Heapify(size_t nodeIdx) = 0;
+    Heap(size_t capacity, Predicate pred = MinPredicate);
+
+    void FixHeap(size_t nodeIdx);
+    void Heapify(size_t nodeIdx);
 
     void Insert(T&& value) noexcept;
 
@@ -27,41 +33,6 @@ public:
 protected:
     std::vector<T> m_data = {};
     size_t m_capacity = 0;
+    Predicate m_predicate;
 
 };
-
-template <typename T>
-class MinHeap: public Heap<T>
-{
-public:
-    using Heap<T>::Parent;
-    using Heap<T>::Left;
-    using Heap<T>::Right;
-    using Heap<T>::Size;
-
-    MinHeap(size_t capacity);
-private:
-    void FixHeap(size_t nodeIdx) override final;
-
-    void Heapify(size_t nodeIdx) override final;
-
-    using Heap<T>::m_data;
-};
-
-template <typename T>
-class MaxHeap: public Heap<T>
-{
-public:
-    using Heap<T>::Size;
-    using Heap<T>::Parent;
-    using Heap<T>::Left;
-    using Heap<T>::Right;
-
-    MaxHeap(size_t capacity);
-private:
-    void FixHeap(size_t nodeIdx) override final;
-    void Heapify(size_t nodeIdx) override final;
-
-    using Heap<T>::m_data;
-};
-

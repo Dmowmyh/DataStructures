@@ -1,12 +1,10 @@
+#pragma once
 #include "HeapMedian.h"
 #include <cmath>
 
-template class HeapMedian<int>;
-template class HeapMedian<float>;
-
 template <typename T>
 HeapMedian<T>::HeapMedian(std::initializer_list<T> list)
-    : left_heap(list.size()), right_heap(list.size())
+    : left_heap(list.size(), Heap<T>::MaxPredicate), right_heap(list.size(), Heap<T>::MinPredicate)
 {
     for (auto item: list)
     {
@@ -15,7 +13,8 @@ HeapMedian<T>::HeapMedian(std::initializer_list<T> list)
 }
 
 template <typename T>
-HeapMedian<T>::HeapMedian(size_t capacity) : left_heap(capacity), right_heap(capacity)
+HeapMedian<T>::HeapMedian(size_t capacity) : left_heap(capacity, Heap<T>::MaxPredicate)
+                                           , right_heap(capacity, Heap<T>::MinPredicate)
 {
 
 }

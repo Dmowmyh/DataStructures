@@ -4,8 +4,8 @@
 #include <algorithm>
 #include <chrono>
 
-#include "HeapMedian/HeapMedian.h"
-#include "Heap/Heap.h"
+#include "HeapMedian/HeapMedian.hpp"
+#include "Heap/Heap.hpp"
 #include "CacheLRU/Cache.h"
 
 using namespace std::chrono;

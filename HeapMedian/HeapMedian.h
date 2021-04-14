@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "Heap/Heap.h"
+#include "Heap/Heap.hpp"
 
 template <typename T>
 class HeapMedian
@@ -17,7 +17,7 @@ class HeapMedian
     private:
         void CalculateMedian();
 
-        MaxHeap<T> left_heap;
-        MinHeap<T> right_heap;
+        Heap<T> left_heap;
+        Heap<T> right_heap;
         T m_current_median = 0;
 };
